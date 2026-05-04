@@ -50,17 +50,17 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
       transition={{ duration: 0.7 }}
       className="flex flex-col items-center text-center"
     >
-      <span className="text-4xl md:text-5xl font-display font-light italic text-dark-oak">
+      <span className="text-4xl md:text-5xl font-display font-light italic text-loam">
         {value < 1 ? count.toFixed(3) : Math.round(count)}{suffix}
       </span>
-      <span className="mt-2 text-sm md:text-base text-umber font-body uppercase tracking-[0.12em]">{label}</span>
+      <span className="mt-2 text-sm md:text-base text-loam-mid font-body uppercase tracking-[0.12em]">{label}</span>
     </motion.div>
   )
 }
 
 export default function StatsBar() {
   return (
-    <section className="bg-raw-linen py-14 md:py-16">
+    <section className="bg-lichen py-14 md:py-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
           {STATS.map((stat) => (

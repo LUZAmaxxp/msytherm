@@ -27,8 +27,8 @@ export default function MaterialStatement() {
   return (
     <section
       ref={ref}
-      className="bg-obsidian min-h-[50vh] flex items-center border-t"
-      style={{ borderTopColor: '#4A3D2E', borderTopWidth: '0.5px' }}
+      className="bg-humus min-h-[50vh] flex items-center border-t"
+      style={{ borderTopColor: '#2B3020', borderTopWidth: '0.5px' }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-20 w-full grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 md:gap-20 items-center">
 
@@ -41,12 +41,12 @@ export default function MaterialStatement() {
           className="flex flex-col items-start"
         >
           <span
-            className="font-display font-light italic text-straw leading-none"
+            className="font-display font-light italic text-sage leading-none"
             style={{ fontSize: 'clamp(5rem, 12vw, 10rem)' }}
           >
             {count}%
           </span>
-          <span className="font-body text-umber uppercase tracking-[0.2em] text-[11px] mt-2">
+          <span className="font-body text-loam-mid uppercase tracking-[0.2em] text-[11px] mt-2">
             biosourcé
           </span>
         </motion.div>
@@ -57,7 +57,7 @@ export default function MaterialStatement() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-          className="font-display font-light text-raw-linen max-w-[520px] leading-[1.9]"
+          className="font-display font-light text-lichen max-w-[520px] leading-[1.9]"
           style={{ fontSize: '1.2rem' }}
         >
           Le mycélium — réseau racinaire du champignon — est cultivé sur des substrats agricoles

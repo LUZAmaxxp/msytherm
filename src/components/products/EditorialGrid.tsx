@@ -58,9 +58,8 @@ function GridCell({ img, index }: { img: GridImage; index: number }) {
           loading="lazy"
         />
         {/* Caption overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-obsidian/60 to-transparent
-          opacity-0 translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]
-          group-hover:opacity-100 group-hover:translate-y-0"
+        <div className="absolute bottom-0 left-0 right-0 p-4"
+          style={{ background: 'linear-gradient(to top, rgba(26,31,20,0.65) 0%, transparent 60%)' }}
         >
           <span className="text-[11px] text-bone font-body uppercase tracking-[0.1em]">
             {img.caption}
@@ -73,7 +72,7 @@ function GridCell({ img, index }: { img: GridImage; index: number }) {
 
 export default function EditorialGrid() {
   return (
-    <section className="bg-bone py-16 md:py-24 px-4 sm:px-8 lg:px-16">
+    <section className="bg-parchment py-16 md:py-24 px-4 sm:px-8 lg:px-16">
       {/* Desktop grid */}
       <div className="hidden md:grid grid-cols-3 grid-rows-2 gap-3 max-w-7xl mx-auto">
         {images.map((img, i) => (
@@ -99,8 +98,8 @@ export default function EditorialGrid() {
                 className="w-full h-full object-cover [filter:saturate(0.85)] group-hover:[filter:saturate(1)] group-hover:scale-[1.03] transition-all duration-500"
                 loading="lazy"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-obsidian/60 to-transparent">
-                <span className="text-[11px] text-bone font-body uppercase tracking-[0.1em]">
+              <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: 'linear-gradient(to top, rgba(26,31,20,0.65) 0%, transparent 60%)' }}>
+                <span className="text-[11px] text-parchment font-body uppercase tracking-[0.1em]">
                   {img.caption}
                 </span>
               </div>

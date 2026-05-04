@@ -6,8 +6,8 @@ export default function ProductCTA() {
 
   return (
     <section
-      className="bg-bone py-12 px-6"
-      style={{ borderTopWidth: '0.5px', borderTopColor: '#C4B49A', borderTopStyle: 'solid' }}
+      className="bg-parchment py-12 px-6"
+      style={{ borderTopWidth: '0.5px', borderTopColor: '#8A9975', borderTopStyle: 'solid' }}
     >
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -17,7 +17,7 @@ export default function ProductCTA() {
         className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6"
       >
         <p
-          className="font-display font-light italic text-dark-oak text-center md:text-left"
+          className="font-display font-light italic text-loam text-center md:text-left"
           style={{ fontSize: '1.4rem' }}
         >
           Intéressé par nos panneaux pour votre projet&nbsp;?
@@ -25,7 +25,7 @@ export default function ProductCTA() {
 
         <button
           onClick={() => navigate('/#contact')}
-          className="shrink-0 bg-kiln-red text-bone font-body font-normal text-sm tracking-wide px-8 py-3 rounded-sm cursor-pointer transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-1 focus-visible:outline-kiln-red focus-visible:outline-offset-2"
+          className="shrink-0 bg-resin text-parchment font-body font-normal text-sm tracking-wide px-8 py-3 rounded-sm cursor-pointer transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-1 focus-visible:outline-resin focus-visible:outline-offset-2"
         >
           Demander un devis
         </button>

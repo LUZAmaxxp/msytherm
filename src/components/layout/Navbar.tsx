@@ -40,7 +40,7 @@ export default function Navbar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.1 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-obsidian shadow-lg' : 'bg-obsidian/95'
+        scrolled ? 'bg-humus shadow-lg' : 'bg-humus/95'
       }`}
       role="banner"
     >
@@ -49,10 +49,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kiln-red rounded"
+            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-resin rounded"
           >
-            <span className="text-kiln-red font-display font-light italic text-xl tracking-tight">Mys</span>
-            <span className="text-bone font-display font-light italic text-xl tracking-tight">Therm</span>
+            <span className="text-resin font-display font-light italic text-xl tracking-tight">Mys</span>
+            <span className="text-parchment font-display font-light italic text-xl tracking-tight">Therm</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -61,7 +61,7 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => handleNav(link.href, link.isRoute)}
-                className="text-bone/60 hover:text-bone text-sm font-body transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kiln-red rounded px-1"
+                className="text-parchment/60 hover:text-parchment text-sm font-body transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-resin rounded px-1"
               >
                 {link.label}
               </button>
@@ -79,7 +79,7 @@ export default function Navbar() {
               Devis Gratuit
             </Button>
             <button
-              className="md:hidden text-bone p-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kiln-red"
+              className="md:hidden text-parchment p-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-resin"
               onClick={() => setMenuOpen((v) => !v)}
               aria-expanded={menuOpen}
               aria-label="Ouvrir le menu"

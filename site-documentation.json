@@ -1,0 +1,573 @@
+{
+  "project": {
+    "name": "MysTherm",
+    "version": "0.0.0",
+    "description": "Marketing website for MysTherm — a French biocomposite insulation startup producing mycelium-based sandwich panels. Full-stack SPA in French language.",
+    "language": "fr",
+    "generated": "2026-05-04",
+    "repository": "mystherm-web"
+  },
+
+  "tech_stack": {
+    "framework": "React 19 + Vite 8",
+    "language": "TypeScript (strict)",
+    "styling": "Tailwind CSS v3",
+    "routing": "React Router DOM v7 (BrowserRouter, lazy-loaded routes)",
+    "animation": "Framer Motion v12",
+    "3d": "Three.js v0.184 (raw, no R3F in production canvases)",
+    "form": "react-hook-form v7 + Zod v4",
+    "ui_primitives": "shadcn/ui (manual, Radix primitives)",
+    "build": "tsc -b && vite build",
+    "path_alias": "@/ → src/",
+    "chunk_splitting": {
+      "three": "Three.js + @react-three/*",
+      "vendor": "framer-motion + all other node_modules",
+      "Products": "lazy route — ~10.9 kB",
+      "SandwichPanel": "lazy route — ~14.1 kB"
+    }
+  },
+
+  "design_system": {
+    "name": "Wabi-Sabi Mineral",
+    "philosophy": "Warm earthy tones inspired by natural materials — bone, linen, straw, timber, kiln-fired clay. Minimalist. No sharp white. No pure black. Every color references a physical material.",
+
+    "color_palette": {
+      "bone": {
+        "hex": "#F7F2EB",
+        "rgb": "247, 242, 235",
+        "role": "Primary background — parchment white. Used for page bg, cards, info panels.",
+        "tailwind_token": "bg-bone / text-bone"
+      },
+      "raw-linen": {
+        "hex": "#E8E0D1",
+        "rgb": "232, 224, 209",
+        "role": "Secondary background — slightly darker warm off-white. Used for PropertiesStrip, LayerExplorer section, scrollbar track.",
+        "tailwind_token": "bg-raw-linen / text-raw-linen"
+      },
+      "straw": {
+        "hex": "#C4B49A",
+        "rgb": "196, 180, 154",
+        "role": "Muted mid-tone. Dividers, borders, scroll indicators, badge borders, Three.js ambient light color.",
+        "tailwind_token": "bg-straw / text-straw / border-straw"
+      },
+      "umber": {
+        "hex": "#8C7355",
+        "rgb": "140, 115, 85",
+        "role": "Secondary text — muted labels, captions, uppercase tracking tags, back-link buttons.",
+        "tailwind_token": "text-umber"
+      },
+      "dark-oak": {
+        "hex": "#4A3D2E",
+        "rgb": "74, 61, 46",
+        "role": "Primary text — readable dark tone. Also Hero section background (not pure black).",
+        "tailwind_token": "bg-dark-oak / text-dark-oak"
+      },
+      "obsidian": {
+        "hex": "#2A2318",
+        "rgb": "42, 35, 24",
+        "role": "Darkest tone — Navbar bg, SandwichPanel header bg, MaterialStatement bg, Three.js interior layer color. theme-color meta tag.",
+        "tailwind_token": "bg-obsidian / text-obsidian"
+      },
+      "kiln-red": {
+        "hex": "#7A4F3A",
+        "rgb": "122, 79, 58",
+        "role": "Primary accent / brand color — CTA buttons, active states, hero subheadline, SVG icon strokes, scrollbar thumb, focus rings, Three.js PointLight fill.",
+        "tailwind_token": "bg-kiln-red / text-kiln-red / border-kiln-red"
+      },
+      "celadon": {
+        "hex": "#5C7068",
+        "rgb": "92, 112, 104",
+        "role": "Secondary accent — moss/green undertone. Three.js vapour barrier layer, back light, celadon button variant, badge secondary.",
+        "tailwind_token": "bg-celadon / text-celadon"
+      }
+    },
+
+    "css_variables": {
+      "note": "shadcn/ui CSS variable bridge — maps palette to semantic roles",
+      "--background": "247 242 235 (bone)",
+      "--foreground": "42 35 24 (obsidian)",
+      "--primary": "122 79 58 (kiln-red)",
+      "--primary-foreground": "247 242 235 (bone)",
+      "--secondary": "232 224 209 (raw-linen)",
+      "--secondary-foreground": "74 61 46 (dark-oak)",
+      "--border": "196 180 154 (straw)",
+      "--input": "196 180 154 (straw)",
+      "--ring": "122 79 58 (kiln-red)",
+      "--radius": "2px",
+      "--muted": "196 180 154 (straw)",
+      "--muted-foreground": "140 115 85 (umber)",
+      "--accent": "92 112 104 (celadon)",
+      "--accent-foreground": "247 242 235 (bone)"
+    },
+
+    "typography": {
+      "display_font": {
+        "name": "Fraunces",
+        "source": "Google Fonts",
+        "weights_loaded": ["300", "400"],
+        "styles_loaded": ["normal", "italic"],
+        "optical_size": "9..144 (variable axis)",
+        "usage": "All headings (h1, h2, h3), hero headlines, editorial text blocks, step numbers. Always font-light (300). Often italic.",
+        "tailwind_class": "font-display"
+      },
+      "body_font": {
+        "name": "Inter",
+        "source": "Google Fonts",
+        "weights_loaded": ["300", "400", "500"],
+        "usage": "All body copy, labels, buttons, captions, nav links, form fields.",
+        "tailwind_class": "font-body / font-sans"
+      },
+      "border_radius": "2px globally (sharp, no rounded corners — architectural aesthetic)",
+      "global_body": "bg-bone text-dark-oak font-body, antialiased",
+      "selection": "background #7A4F3A (kiln-red), color #F7F2EB (bone)",
+      "scrollbar": "width 6px, track #E8E0D1, thumb #7A4F3A, borderRadius 3px",
+      "focus_visible": "1px solid #7A4F3A, offset 2px"
+    },
+
+    "animation": {
+      "default_ease": "[0.25, 0.1, 0.25, 1] — cubic-bezier, smooth deceleration",
+      "spring_standard": "stiffness 200, damping 25",
+      "spring_diagram": "stiffness 120, damping 18",
+      "fade_up_pattern": "opacity 0→1, y 28→0, duration 0.75s",
+      "library": "Framer Motion v12"
+    }
+  },
+
+  "routing": {
+    "type": "React Router DOM v7, BrowserRouter",
+    "entry": "src/main.tsx wraps App in <BrowserRouter>",
+    "routes": [
+      { "path": "/", "component": "HomePage (inline in App.tsx)", "lazy": false },
+      { "path": "/produits", "component": "src/pages/Products.tsx", "lazy": true },
+      { "path": "/panneau-sandwich", "component": "src/pages/SandwichPanel.tsx", "lazy": true }
+    ],
+    "page_loader": "Bone bg + kiln-red spinner shown during lazy chunk load",
+    "navbar_navigation": "isRoute:true → navigate(href), isRoute:false/undefined → scrollIntoView(). If not on home and hash link clicked → navigate('/') then setTimeout scroll 300ms."
+  },
+
+  "pages": {
+    "home": {
+      "route": "/",
+      "description": "Main marketing landing page — full single-page scroll experience.",
+      "sections_in_order": [
+        "Hero",
+        "StatsBar",
+        "HowItWorks",
+        "ProductStack",
+        "Benefits",
+        "Testimonials",
+        "ContactForm"
+      ]
+    },
+    "products": {
+      "route": "/produits",
+      "description": "Editorial product showcase page — full-viewport imagery, grid layout, material philosophy, technical specs, CTA.",
+      "sections_in_order": [
+        "ProductHero",
+        "EditorialGrid",
+        "MaterialStatement",
+        "PropertiesStrip",
+        "ProductCTA"
+      ]
+    },
+    "sandwich_panel": {
+      "route": "/panneau-sandwich",
+      "description": "Interactive 3D layer explorer — CSS perspective diagram with clickable layers, animated info panel, thickness selector.",
+      "sections_in_order": [
+        "SandwichPanel header",
+        "LayerExplorer (LayerDiagram + LayerInfoPanel)"
+      ]
+    }
+  },
+
+  "components": {
+    "layout": {
+      "Navbar": {
+        "file": "src/components/layout/Navbar.tsx",
+        "description": "Fixed top navigation bar with scroll-aware bg opacity, logo, desktop nav, mobile hamburger, CTA button.",
+        "background": "bg-obsidian (#2A2318), 95% opacity when not scrolled, full opacity + shadow when scrolled",
+        "logo": "React Router <Link to='/'>. 'Mys' in kiln-red italic, 'Therm' in bone italic. Both Fraunces 300.",
+        "nav_links": "font-body text-bone/60 → text-bone on hover. 6 links (3 hash-scroll, 2 route, 1 hash).",
+        "cta_button": "Devis Gratuit — kiln-red bg, bone text, navigates to #contact",
+        "mobile": "Hamburger shows AnimatePresence MobileMenu",
+        "animation": "Slide down on mount: opacity 0→1, y -20→0, 0.4s delay 0.1s"
+      },
+      "MobileMenu": {
+        "file": "src/components/layout/MobileMenu.tsx",
+        "description": "Animated dropdown nav for mobile. Full-width obsidian bg, stacked buttons, CTA at bottom.",
+        "animation": "opacity 0→1, y -8→0, duration 0.2s, AnimatePresence exit",
+        "prop_signature": "onNavigate: (href: string, isRoute?: boolean) => void"
+      },
+      "Footer": {
+        "file": "src/components/layout/Footer.tsx",
+        "description": "Site footer with brand statement, nav links, legal info."
+      }
+    },
+
+    "sections_home": {
+      "Hero": {
+        "file": "src/components/sections/Hero.tsx",
+        "background": "bg-dark-oak (#4A3D2E) — full viewport height",
+        "radial_gradients": [
+          "top-right: rgba(122,79,58,0.22) kiln-red glow",
+          "bottom-left: rgba(92,112,104,0.10) celadon glow"
+        ],
+        "shimmer_line": "Animated h-px scaleX 0→1 at top edge, via straw/30, 1.6s ease",
+        "layout": "2-col grid on lg (text left, 3D canvas right), single col on mobile",
+        "text_animations": {
+          "badge": "delay 0.1s — straw outline badge, uppercase tracking",
+          "h1_line1": "delay 0.28s — Fraunces 300 italic bone, clamp(2.6rem, 5.5vw, 4.2rem)",
+          "h1_line2": "delay 0.44s — Fraunces 300 italic kiln-red accent line",
+          "divider": "delay 0.6s — w-12 h-px bg-straw/50 scaleX 0→1",
+          "description": "delay 0.62s — font-body text-raw-linen/80",
+          "cta_buttons": "delay 0.76s — primary kiln-red + secondary dark-oak",
+          "trust_items": "delay 0.95s, 0.06s stagger — 3 items: 🌿 100% Biosourcé, 🔥 Ignifuge, 🇫🇷 Fabriqué en France",
+          "canvas": "delay 0.35s, scale 0.93→1 spring"
+        },
+        "3d_canvas": "Lazy-loaded HeroCanvas — Three.js procedural sandwich panel model with rotate/orbit animation"
+      },
+      "StatsBar": {
+        "file": "src/components/sections/StatsBar.tsx",
+        "description": "3 animated statistics: 0.038 W/m·K conductivité, 45 dB réduction acoustique, 100% biosourcé.",
+        "animation": "useCountUp hook — cubic ease, IntersectionObserver triggered",
+        "background": "raw-linen or obsidian (check file for exact value)"
+      },
+      "HowItWorks": {
+        "file": "src/components/sections/HowItWorks.tsx",
+        "description": "3-step process: 01 Diagnostic Énergétique, 02 Pose des Panneaux, 03 Certification & Garantie.",
+        "step_numbers": "Fraunces italic kiln-red"
+      },
+      "ProductStack": {
+        "file": "src/components/sections/ProductStack.tsx",
+        "description": "Product comparison: MysTherm Standard (40–80mm, λ 0.038) vs MysTherm Premium (80–120mm, λ 0.035).",
+        "includes": "LayerExploderCanvas — Three.js exploded layer stack animation"
+      },
+      "Benefits": {
+        "file": "src/components/sections/Benefits.tsx",
+        "description": "4 benefit cards: Isolation Thermique Supérieure, Confort Acoustique, Résistance au Feu, 100% Biosourcé.",
+        "accent_colors": ["terracotta", "moss", "slate", "moss"]
+      },
+      "Testimonials": {
+        "file": "src/components/sections/Testimonials.tsx",
+        "description": "2 client testimonials: Jean-Pierre Moreau (propriétaire, Lyon), Sophie Blanc (architecte DPLG, Paris). Both 5-star ratings."
+      },
+      "ContactForm": {
+        "file": "src/components/sections/ContactForm.tsx",
+        "description": "Lead capture form — react-hook-form + Zod validation. Headline: 'Parlons de votre projet'. Subheadline: 'Obtenez une étude thermique gratuite'.",
+        "validation": "Zod schema in src/lib/schemas/contactSchema.ts",
+        "anchor": "id='contact'"
+      }
+    },
+
+    "sections_products": {
+      "ProductHero": {
+        "file": "src/components/products/ProductHero.tsx",
+        "description": "Full-viewport hero for /produits page.",
+        "background_image": "/images/products/product-wave-panel.jpg",
+        "overlay": "linear-gradient(135deg, rgba(42,35,24,0.80) 0%, rgba(42,35,24,0.35) 50%, transparent 100%)",
+        "headline": "'Grown, not made.' — Fraunces 300 italic bone, clamp(3rem, 6vw, 5.5rem), delay 0.4s",
+        "subtitle": "Italic font-body text-straw text-sm tracking-[0.08em], delay 0.65s",
+        "scroll_indicator": "Animated vertical gradient line, straw/50, pulse loop, opacity fades in at delay 1.2s"
+      },
+      "EditorialGrid": {
+        "file": "src/components/products/EditorialGrid.tsx",
+        "description": "Asymmetric 3-column CSS grid of 4 product photos.",
+        "background": "bg-bone (#F7F2EB)",
+        "grid_layout": {
+          "cell_1": "product-cubes-stack.jpg — col 1, row-span-2, aspect 3/4. Caption: 'Grades de densité — fin, médium, brut'",
+          "cell_2": "product-hex-tiles.jpg — col 2-3, row 1, aspect 16/9. Caption: 'Tuiles hexagonales — modulaires et emboîtables'",
+          "cell_3": "product-panel-frame.jpg — col 2, row 2, aspect 1/1. Caption: 'Panneaux encadrés — prêts à poser'",
+          "cell_4": "product-mycelium-bag.jpg — col 3, row 2, aspect 1/1. Caption: 'Substrat vivant — matière première'"
+        },
+        "image_hover": "filter saturate(0.85) default → saturate(1) + scale(1.03) on hover. transition 0.5s cubic-bezier(0.25,0.1,0.25,1)",
+        "caption": "Absolute bottom-left, Inter 300 11px bone uppercase tracking-[0.1em]. opacity 0 + translateY → opacity 1 on group hover",
+        "caption_gradient": "linear-gradient(to top, rgba(42,35,24,0.60), transparent)",
+        "animation": "Framer Motion staggered fade-in on scroll, 0.1s stagger, once:true"
+      },
+      "MaterialStatement": {
+        "file": "src/components/products/MaterialStatement.tsx",
+        "description": "Full-bleed editorial section — animated counter + editorial paragraph.",
+        "background": "#2A2318 (obsidian)",
+        "border_top": "0.5px solid #4A3D2E (dark-oak)",
+        "min_height": "50vh",
+        "left_col": "40% — '100%' Fraunces 300 italic straw, clamp(5rem, 12vw, 10rem). Label 'biosourcé' Inter 300 uppercase umber tracking-[0.2em]",
+        "counter": "useCountUp hook, 0→100, 2200ms duration, cubic ease-out, triggered by useInView (Framer Motion)",
+        "right_col": "60% — editorial paragraph in Fraunces 300 text-raw-linen, font-size 1.2rem, line-height 1.9, max-width 520px",
+        "paragraph_text": "Le mycélium — réseau racinaire du champignon — est cultivé sur des substrats agricoles locaux. En quelques jours, il colonise le moule, se solidifie, et crée un matériau d'isolation naturel, sans colle, sans plastique, sans empreinte carbone excessive.",
+        "animation": "Left col: x -20→0, opacity, delay 0. Right col: x 20→0, opacity, delay 0.15s."
+      },
+      "PropertiesStrip": {
+        "file": "src/components/products/PropertiesStrip.tsx",
+        "description": "5 technical properties in a horizontal strip.",
+        "background": "#E8E0D1 (raw-linen)",
+        "border_top": "0.5px solid #C4B49A (straw)",
+        "properties": [
+          { "icon": "Thermometer SVG", "label": "Isolation thermique", "value": "λ 0.04 W/m·K" },
+          { "icon": "SoundWave SVG", "label": "Isolation acoustique", "value": "Rw 42 dB" },
+          { "icon": "Leaf SVG", "label": "Léger & résistant", "value": "≥ 150 kPa" },
+          { "icon": "Recycle SVG", "label": "Écologique biosourcé", "value": "CO₂ négatif" },
+          { "icon": "Flame SVG", "label": "Résistant au feu", "value": "Euroclasse E" }
+        ],
+        "icon_style": "28px SVG, stroke #7A4F3A (kiln-red), strokeWidth 1, strokeLinecap round",
+        "label_style": "Inter 300 uppercase tracking-[0.12em] text-umber text-[10px]",
+        "value_style": "Inter 400 text-dark-oak text-sm",
+        "dividers": "0.5px vertical line #C4B49A between items (desktop only, absolute positioned)",
+        "animation": "Framer Motion staggered slide-up on scroll, 0.08s stagger, once:true"
+      },
+      "ProductCTA": {
+        "file": "src/components/products/ProductCTA.tsx",
+        "description": "Bottom CTA strip linking to contact form on home page.",
+        "background": "#F7F2EB (bone)",
+        "border_top": "0.5px solid #C4B49A (straw)",
+        "text": "'Intéressé par nos panneaux pour votre projet ?' — Fraunces 300 italic dark-oak, 1.4rem",
+        "button": "Demander un devis — bg-kiln-red text-bone, rounded-sm, navigate('/#contact') via useNavigate",
+        "layout": "Desktop: flex-row space-between. Mobile: flex-col centered.",
+        "animation": "Fade-up on scroll, once:true"
+      }
+    },
+
+    "sections_sandwich": {
+      "LayerDiagram": {
+        "file": "src/components/sandwich/LayerDiagram.tsx",
+        "description": "CSS 3D perspective representation of the sandwich panel — NOT Three.js.",
+        "perspective": "1200px",
+        "initial_animation": "spring stiffness 120, damping 18. rotateX 0→10deg, rotateY 0→-15deg, opacity 0.4→1, scale 0.9→1. Delay 0.3s.",
+        "layers": [
+          {
+            "id": "exterior",
+            "label": "Finition extérieure",
+            "translateZ": "48px (front)",
+            "height_px": 52,
+            "background": "linear-gradient(135deg, #C9955C, #A8784A)",
+            "border": "0.5px solid #8C7355 (umber)"
+          },
+          {
+            "id": "mycelium",
+            "label": "Âme en mycélium",
+            "translateZ": "0px (middle)",
+            "height_px": "dynamic — (thickness_mm / 80) × 80px. Default 80px at 80mm.",
+            "background": "url('/images/products/product-cubes-stack.jpg') center/cover with fallback #E8D5B0",
+            "border": "0.5px solid #C4B49A (straw)"
+          },
+          {
+            "id": "interior",
+            "label": "Finition intérieure",
+            "translateZ": "-48px (back)",
+            "height_px": 52,
+            "background": "linear-gradient(135deg, #D4B896, #B89A78)",
+            "border": "0.5px solid #8C7355 (umber)"
+          }
+        ],
+        "interaction": {
+          "click_active": "scale 1.05, translateY -4px, brightness 1.05 (Framer Motion spring stiffness 200 damping 25)",
+          "click_dimmed": "scale 0.97, opacity 0.3",
+          "hover": "brightness 1.08, translateY -2px",
+          "reset": "clicking active layer again → activeLayer null (back to full opacity)"
+        }
+      },
+      "LayerInfoPanel": {
+        "file": "src/components/sandwich/LayerInfoPanel.tsx",
+        "description": "Contextual info panel that changes content based on which layer is selected.",
+        "background": "#F7F2EB (bone)",
+        "border": "0.5px solid #C4B49A (straw)",
+        "border_radius": "2px (rounded-sm)",
+        "padding": "2rem",
+        "transition": "AnimatePresence mode='wait' — exit x -24 opacity 0, enter x 24 opacity 0, center x 0 opacity 1. Duration 0.35s.",
+        "states": {
+          "overview": {
+            "trigger": "activeLayer = null",
+            "title": "'Panneau Sandwich Isolant' — Fraunces italic 1.6rem obsidian",
+            "subtitle": "'en mycélium' — Inter 300 uppercase umber tracking-[0.15em]",
+            "description": "Explanatory text in Inter 300 umber 13px",
+            "badges": "5 PropertyBadge components in 2-col grid — isolation thermique, acoustique, biosourcé, CO₂ négatif, euroclasse E",
+            "thickness_selector": "ThicknessSelector component",
+            "cta": "'Demander un échantillon' — full-width kiln-red button, navigate to /#contact"
+          },
+          "exterior": {
+            "trigger": "activeLayer = 'exterior'",
+            "dot_color": "#C9955C",
+            "title": "'Surface de protection' — Fraunces italic",
+            "finishes": ["Bois massif — Chêne, pin ou hêtre — 18 mm", "OSB — Orienté structurel — 15 mm", "Fermacell — Fibre-ciment — 12.5 mm", "Plâtre BA13 — Classique peignable — 13 mm"],
+            "tech_data": ["Épaisseur: 12–18 mm", "Fixation: Collage + vissage", "Résistance: IPX3 (pluie battante)"],
+            "back_link": "← Retour vue ensemble — Inter 300 umber"
+          },
+          "mycelium": {
+            "trigger": "activeLayer = 'mycelium'",
+            "dot_color": "#E8D5B0",
+            "title": "'Le cœur vivant du panneau' — Fraunces italic",
+            "timeline": [
+              { "step": "01", "label": "Inoculation", "detail": "Le substrat agricole est ensemencé" },
+              { "step": "02", "label": "Croissance", "detail": "5–7 jours en chambre à 25°C" },
+              { "step": "03", "label": "Démoulage", "detail": "Mise en forme finale" },
+              { "step": "04", "label": "Pasteurisation", "detail": "Arrêt de la croissance — produit stable" }
+            ],
+            "timeline_line": "0.5px straw, absolute left edge connecting steps",
+            "step_numbers": "Fraunces italic kiln-red",
+            "thickness_selector": "ThicknessSelector component",
+            "tech_data": ["λ: 0.038–0.042 W/m·K", "Compression: ≥ 150 kPa", "Feu: Euroclasse E", "Acoustique αw: 0.65–0.80", "Densité: 80–120 kg/m³", "CO₂: négatif"],
+            "back_link": "← Retour vue ensemble"
+          },
+          "interior": {
+            "trigger": "activeLayer = 'interior'",
+            "dot_color": "#D4B896",
+            "title": "'Surface intérieure habitable' — Fraunces italic",
+            "finishes": ["Plaque de plâtre BA13 — Peignable, coupe-feu", "Bois contreplaqué — Naturel, découpable", "MDF hydrofuge — Zones humides"],
+            "tech_data": ["Épaisseur: 10–18 mm", "Surface: Peignable", "Fixation: Collage"],
+            "back_link": "← Retour vue ensemble"
+          }
+        }
+      },
+      "ThicknessSelector": {
+        "file": "src/components/sandwich/ThicknessSelector.tsx",
+        "description": "Interactive thickness picker with animated R-value display.",
+        "options_mm": [40, 60, 80, 100, 120],
+        "default_mm": 80,
+        "r_value_formula": "R = thickness_mm / 1000 / 0.040",
+        "r_values": { "40mm": "1.0", "60mm": "1.5", "80mm": "2.0", "100mm": "2.5", "120mm": "3.0" },
+        "r_animation": "requestAnimationFrame cubic-ease 400ms on value change",
+        "button_default": "Inter 400 13px text-dark-oak, border 0.5px straw, rounded-sm",
+        "button_active": "bg-kiln-red text-bone border-kiln-red",
+        "button_hover": "border-kiln-red text-kiln-red"
+      },
+      "PropertyBadge": {
+        "file": "src/components/sandwich/PropertyBadge.tsx",
+        "description": "Reusable icon + label badge component.",
+        "icon_color": "text-kiln-red",
+        "label_style": "Inter 300 uppercase tracking-[0.1em] text-umber text-[10px]"
+      },
+      "LayerExplorer": {
+        "file": "src/components/sandwich/LayerExplorer.tsx",
+        "description": "Stateful container — manages activeLayer and thickness state.",
+        "state": { "activeLayer": "string | null (default null)", "thickness": "number (default 80)" },
+        "layout_desktop": "2-col grid: 60% diagram (sticky top-20), 40% info panel",
+        "layout_mobile": "Single column: diagram top, panel below",
+        "background": "#E8E0D1 (raw-linen)",
+        "hint_text": "'Cliquez sur une couche pour explorer' — Inter 300 umber uppercase"
+      }
+    },
+
+    "ui_primitives": {
+      "Button": {
+        "file": "src/components/ui/button.tsx",
+        "variants": {
+          "default": "bg-kiln-red text-bone hover:bg-kiln-red/90 — primary CTA",
+          "outline": "border-kiln-red text-kiln-red bg-transparent hover:bg-kiln-red hover:text-bone",
+          "ghost": "hover:bg-raw-linen hover:text-dark-oak",
+          "link": "text-kiln-red underline-offset-4",
+          "secondary": "bg-dark-oak text-bone hover:bg-obsidian",
+          "moss": "bg-celadon text-bone hover:opacity-90"
+        },
+        "sizes": {
+          "default": "h-10 px-6 py-2",
+          "sm": "h-8 px-4 text-xs",
+          "lg": "h-12 px-8 text-base",
+          "icon": "h-9 w-9"
+        }
+      },
+      "Badge": {
+        "file": "src/components/ui/badge.tsx",
+        "variants": {
+          "default": "bg-kiln-red text-bone border-transparent",
+          "secondary": "bg-celadon text-bone border-transparent",
+          "outline": "border-kiln-red text-kiln-red",
+          "moss": "bg-celadon/20 text-celadon border-celadon/30"
+        }
+      }
+    }
+  },
+
+  "three_js": {
+    "description": "Raw Three.js (no R3F) used for interactive 3D canvases on home page. CSS 3D used on SandwichPanel page (not Three.js).",
+    "lights": {
+      "ambient": "AmbientLight #C4B49A (straw) intensity 0.5",
+      "key": "DirectionalLight #F7F2EB (bone) intensity 1.0, position (3,4,3)",
+      "fill": "PointLight #7A4F3A (kiln-red) intensity 0.35, range 12, position (-2,1,2)",
+      "back": "PointLight #5C7068 (celadon) intensity 0.2, range 10, position (0,-2,-3)"
+    },
+    "panel_model_layers": {
+      "exterior": { "color": "0x8C7355 (umber)", "roughness": 0.85, "depth": "0.08 units" },
+      "mycelium_core": { "color": "0xC4B49A (straw)", "roughness": 0.9, "emissive": "0x3a2010", "emissiveIntensity": 0.06, "depth": "0.66 units" },
+      "mycelium_shell_glow": { "color": "0x7A4F3A (kiln-red)", "opacity": 0.12, "transparent": true, "note": "Slightly oversized shell for depth glow effect" },
+      "vapor_barrier": { "color": "0x5C7068 (celadon)", "opacity": 0.7, "transparent": true, "roughness": 0.3, "metalness": 0.1, "depth": "0.04 units" },
+      "interior": { "color": "0x2A2318 (obsidian)", "roughness": 0.8, "depth": "0.08 units" }
+    },
+    "layer_stack_model": {
+      "file": "src/lib/three/models/layerStack.ts",
+      "exterior": "0x8C7355 (umber)",
+      "mycelium": "0xC4B49A (straw)",
+      "vapor": "0x5C7068 (celadon) opacity 0.7",
+      "interior": "0x2A2318 (obsidian)"
+    },
+    "canvases": [
+      { "component": "HeroCanvas", "file": "src/components/three/HeroCanvas.tsx", "scene": "Rotating sandwich panel model" },
+      { "component": "LayerExploderCanvas", "file": "src/components/three/LayerExploderCanvas.tsx", "scene": "Exploded layer stack view" }
+    ]
+  },
+
+  "navigation": {
+    "links": [
+      { "label": "Comment ça marche", "href": "#how-it-works", "type": "hash-scroll" },
+      { "label": "Notre Produit", "href": "#product", "type": "hash-scroll" },
+      { "label": "Avantages", "href": "#benefits", "type": "hash-scroll" },
+      { "label": "Produits", "href": "/produits", "type": "route" },
+      { "label": "Panneau Sandwich", "href": "/panneau-sandwich", "type": "route" },
+      { "label": "Contact", "href": "#contact", "type": "hash-scroll" }
+    ]
+  },
+
+  "images": {
+    "location": "public/images/products/",
+    "files": [
+      { "file": "product-cubes-stack.jpg", "description": "Three stacked mycelium insulation blocks — density grades fine, medium, coarse" },
+      { "file": "product-hex-tiles.jpg", "description": "Four hexagonal mycelium tiles showing modular interlocking system" },
+      { "file": "product-panel-frame.jpg", "description": "Mycelium panels installed in pine wood frames ready to mount" },
+      { "file": "product-wave-panel.jpg", "description": "Large wave-texture mycelium panel in a natural wood display stand — used as ProductHero background" },
+      { "file": "product-mycelium-bag.jpg", "description": "Growing mycelium substrate bag with visible fungal growth — raw material stage" },
+      { "file": "product-sandwich-diagram.jpg", "description": "Reference diagram of sandwich panel composition" }
+    ]
+  },
+
+  "seo_meta": {
+    "lang": "fr",
+    "theme_color": "#2A2318",
+    "description": "MysTherm — Panneaux isolants en mycélium. Isolation thermique et acoustique biosourcée, ignifuge, légère et écologique.",
+    "og_title": "MysTherm — Isolation en Mycélium",
+    "og_description": "Panneaux isolants biosourcés en mycélium. Thermique, acoustique, ignifuge.",
+    "og_type": "website",
+    "twitter_card": "summary_large_image",
+    "robots": "index, follow",
+    "skip_link": "Aller au contenu principal (sr-only, visible on focus)"
+  },
+
+  "form": {
+    "component": "ContactForm",
+    "anchor": "#contact",
+    "validation": "Zod schema (src/lib/schemas/contactSchema.ts) + @hookform/resolvers",
+    "headline": "Parlons de votre projet",
+    "subheadline": "Obtenez une étude thermique gratuite",
+    "description": "Notre équipe d'experts vous accompagne de l'audit énergétique à la pose, partout en France."
+  },
+
+  "performance": {
+    "lazy_loading": "React.lazy() + Suspense for /produits and /panneau-sandwich pages",
+    "image_loading": "fetchPriority='high' on ProductHero bg image; loading='lazy' on EditorialGrid images",
+    "chunk_sizes_gzipped": {
+      "index_css": "6.11 kB",
+      "vendor_js": "146.23 kB (framer-motion + all node_modules)",
+      "three_js": "138.41 kB (Three.js bundle)",
+      "main_index_js": "9.95 kB",
+      "Products_chunk": "3.54 kB",
+      "SandwichPanel_chunk": "4.39 kB"
+    }
+  },
+
+  "accessibility": {
+    "skip_link": "sr-only skip-to-content at top of HomePage",
+    "aria_labels": "All interactive elements have aria-label or aria-pressed",
+    "aria_hidden": "Decorative elements (blobs, dividers, shimmer) marked aria-hidden=true",
+    "focus_ring": "1px solid #7A4F3A, offset 2px globally on :focus-visible",
+    "keyboard_navigation": "LayerDiagram layers respond to Enter key",
+    "role_button": "LayerDiagram div layers have role='button' + tabIndex=0",
+    "spinner_label": "role='status' + aria-label on 3D loading skeleton"
+  }
+}

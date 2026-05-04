@@ -14,20 +14,20 @@ function StepCard({ step, index }: StepCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="bg-bone rounded-sm p-6 border border-straw/40 flex flex-col gap-4"
+      className="bg-parchment rounded-sm p-6 border border-sage/40 flex flex-col gap-4"
     >
       <div className="flex items-start justify-between">
-        <span className="font-display font-light text-5xl text-straw select-none">{step.number}</span>
+        <span className="font-display font-light text-5xl text-sage select-none">{step.number}</span>
         <div
           id={`mini-canvas-${step.id}`}
-          className="w-24 h-16 rounded-sm bg-raw-linen/60 overflow-hidden flex-shrink-0"
+          className="w-24 h-16 rounded-sm bg-lichen/60 overflow-hidden flex-shrink-0"
           role="img"
           aria-label={`Animation: ${step.title}`}
         />
       </div>
       <div>
-        <h3 className="font-display font-light text-lg text-dark-oak mb-2">{step.title}</h3>
-        <p className="text-sm text-umber leading-relaxed font-body">{step.description}</p>
+        <h3 className="font-display font-light text-lg text-loam mb-2">{step.title}</h3>
+        <p className="text-sm text-loam-mid leading-relaxed font-body">{step.description}</p>
       </div>
     </motion.div>
   )
@@ -35,7 +35,7 @@ function StepCard({ step, index }: StepCardProps) {
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 md:py-24 bg-bone">
+    <section id="how-it-works" className="py-20 md:py-24 bg-parchment">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,13 +44,13 @@ export default function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <span className="inline-block text-celadon text-sm font-body uppercase tracking-widest mb-3">
+          <span className="inline-block text-moss-water text-sm font-body uppercase tracking-widest mb-3">
             Notre processus
           </span>
-          <h2 className="font-display font-light text-3xl md:text-4xl text-dark-oak">
+          <h2 className="font-display font-light text-3xl md:text-4xl text-loam">
             Comment ça marche ?
           </h2>
-          <p className="mt-4 max-w-xl mx-auto text-umber font-body">
+          <p className="mt-4 max-w-xl mx-auto text-loam-mid font-body">
             De l'audit à la certification, nous gérons tout — pour une rénovation sans stress.
           </p>
         </motion.div>

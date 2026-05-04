@@ -8,12 +8,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-kiln-red text-bone shadow hover:bg-kiln-red/90',
-        outline: 'border border-kiln-red text-kiln-red bg-transparent hover:bg-kiln-red hover:text-bone',
-        ghost: 'hover:bg-raw-linen hover:text-dark-oak',
-        link: 'text-kiln-red underline-offset-4 hover:underline',
-        secondary: 'bg-dark-oak text-bone shadow-sm hover:bg-obsidian',
-        moss: 'bg-celadon text-bone shadow hover:opacity-90',
+        default: 'bg-resin text-parchment shadow hover:bg-resin/90',
+        outline: 'border border-resin text-resin bg-transparent hover:bg-resin hover:text-parchment',
+        ghost: 'hover:bg-lichen hover:text-loam',
+        link: 'text-resin underline-offset-4 hover:underline',
+        secondary: 'bg-loam text-parchment shadow-sm hover:bg-humus',
+        moss: 'bg-moss-water text-parchment shadow hover:opacity-90',
       },
       size: {
         default: 'h-10 px-6 py-2',

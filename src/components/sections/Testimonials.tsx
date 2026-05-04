@@ -8,7 +8,7 @@ function Stars({ rating }: { rating: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          className="text-celadon"
+          className="text-moss-water"
           width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
           aria-hidden="true"
         >
@@ -26,14 +26,14 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial; ind
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.7, delay: index * 0.15 }}
-      className="bg-raw-linen rounded-sm p-8 border border-straw/40 flex flex-col gap-4"
+      className="bg-lichen rounded-sm p-8 border border-sage/40 flex flex-col gap-4"
     >
-      <span className="font-display font-light italic text-kiln-red/60 leading-none select-none" style={{ fontSize: '4rem' }} aria-hidden="true">“</span>
-      <p className="font-display font-light italic text-dark-oak leading-relaxed text-[1.05rem] -mt-4">{testimonial.quote}</p>
-      <div className="flex items-center justify-between mt-auto pt-4 border-t border-straw/40">
+      <span className="font-display font-light italic text-resin/55 leading-none select-none" style={{ fontSize: '4rem' }} aria-hidden="true">“</span>
+      <p className="font-display font-light italic text-loam leading-relaxed text-[1.05rem] -mt-4">{testimonial.quote}</p>
+      <div className="flex items-center justify-between mt-auto pt-4 border-t border-sage/40">
         <div>
-          <p className="font-body text-dark-oak text-sm uppercase tracking-[0.1em]">{testimonial.author}</p>
-          <p className="text-xs text-umber">{testimonial.role} — {testimonial.company}</p>
+          <p className="font-body text-loam text-sm uppercase tracking-[0.1em]">{testimonial.author}</p>
+          <p className="text-xs text-loam-mid">{testimonial.role} — {testimonial.company}</p>
         </div>
         <Stars rating={testimonial.rating} />
       </div>
@@ -43,7 +43,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial; ind
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 md:py-24 bg-bone">
+    <section id="testimonials" className="py-20 md:py-24 bg-parchment">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,10 +52,10 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <span className="inline-block text-celadon text-sm font-body uppercase tracking-widest mb-3">
+          <span className="inline-block text-moss-water text-sm font-body uppercase tracking-widest mb-3">
             Témoignages
           </span>
-          <h2 className="font-display font-light text-3xl md:text-4xl text-dark-oak">
+          <h2 className="font-display font-light text-3xl md:text-4xl text-loam">
             Ils nous font confiance
           </h2>
         </motion.div>

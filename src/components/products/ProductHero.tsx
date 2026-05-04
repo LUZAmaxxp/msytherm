@@ -18,7 +18,7 @@ export default function ProductHero() {
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(135deg, rgba(42,35,24,0.80) 0%, rgba(42,35,24,0.35) 50%, transparent 100%)',
+            'linear-gradient(135deg, rgba(26,31,20,0.82) 0%, rgba(26,31,20,0.38) 50%, transparent 100%)',
         }}
         aria-hidden="true"
       />
@@ -29,7 +29,7 @@ export default function ProductHero() {
           initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease }}
-          className="font-display font-light italic text-bone leading-[1.05] mb-4"
+          className="font-display font-light italic text-parchment leading-[1.05] mb-4"
           style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)' }}
         >
           Grown, not made.
@@ -39,7 +39,7 @@ export default function ProductHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.65, ease }}
-          className="font-body text-straw text-sm tracking-[0.08em] max-w-md leading-relaxed"
+          className="font-body text-sage italic text-sm tracking-[0.08em] max-w-md leading-relaxed"
         >
           Isolation biosourcée en mycélium — thermique, acoustique, résistante au feu.
         </motion.p>
@@ -53,11 +53,11 @@ export default function ProductHero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         aria-hidden="true"
       >
-        <span className="text-[10px] text-straw/50 font-body uppercase tracking-[0.18em]">Découvrir</span>
+        <span className="text-[10px] text-sage/50 font-body uppercase tracking-[0.18em]">Découvrir</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px h-8 bg-gradient-to-b from-straw/50 to-transparent"
+          className="w-px h-8 bg-gradient-to-b from-sage/50 to-transparent"
         />
       </motion.div>
     </section>

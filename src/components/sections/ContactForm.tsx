@@ -30,7 +30,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-obsidian">
+    <section id="contact" className="py-20 md:py-28 bg-humus">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,13 +39,13 @@ export default function ContactForm() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="inline-block text-kiln-red text-sm font-body uppercase tracking-widest mb-3">
+          <span className="inline-block text-resin text-sm font-body uppercase tracking-widest mb-3">
             Contactez-nous
           </span>
-          <h2 className="font-display font-light italic text-3xl md:text-4xl text-bone">
+          <h2 className="font-display font-light italic text-3xl md:text-4xl text-parchment">
             {CONTACT_CONTENT.headline}
           </h2>
-          <p className="mt-3 text-umber font-body">{CONTACT_CONTENT.subheadline}</p>
+          <p className="mt-3 text-loam-mid font-body">{CONTACT_CONTENT.subheadline}</p>
         </motion.div>
 
         <AnimatePresence mode="wait">
@@ -57,9 +57,9 @@ export default function ContactForm() {
               className="text-center py-16"
             >
               <div className="text-5xl mb-4" aria-hidden="true">✅</div>
-              <h3 className="text-2xl font-display font-light text-celadon mb-3">Demande envoyée !</h3>
-              <p className="text-celadon/80 mb-6">Notre équipe vous contactera dans les 24h.</p>
-              <Button variant="outline" onClick={() => { reset(); setFormState('idle') }} className="border-bone/30 text-bone hover:bg-dark-oak">
+              <h3 className="text-2xl font-display font-light text-moss-water mb-3">Demande envoyée !</h3>
+              <p className="text-moss-water/80 mb-6">Notre équipe vous contactera dans les 24h.</p>
+              <Button variant="outline" onClick={() => { reset(); setFormState('idle') }} className="border-parchment/30 text-parchment hover:bg-loam">
                 Envoyer une autre demande
               </Button>
             </motion.div>
@@ -74,79 +74,79 @@ export default function ContactForm() {
             >
               {/* Name */}
               <div className="flex flex-col gap-2">
-                <Label htmlFor="name" className="text-bone/80">Nom complet *</Label>
+                <Label htmlFor="name" className="text-parchment/80">Nom complet *</Label>
                 <Input
                   id="name"
                   placeholder="Jean Dupont"
                   {...register('name')}
                   aria-describedby={errors.name ? 'name-error' : undefined}
-                  className="bg-[#1E1A12] border-straw/50 text-bone placeholder:text-umber rounded-sm focus-visible:ring-1 focus-visible:ring-kiln-red focus-visible:ring-offset-0"
+                  className="bg-[#141910] border-sage/50 text-parchment placeholder:text-loam-mid rounded-sm focus-visible:ring-1 focus-visible:ring-resin focus-visible:ring-offset-0"
                 />
                 {errors.name && (
-                  <p id="name-error" className="text-xs text-celadon" role="alert">{errors.name.message}</p>
+                  <p id="name-error" className="text-xs text-moss-water" role="alert">{errors.name.message}</p>
                 )}
               </div>
 
               {/* Email */}
               <div className="flex flex-col gap-2">
-                <Label htmlFor="email" className="text-bone/80">Email *</Label>
+                <Label htmlFor="email" className="text-parchment/80">Email *</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="jean@exemple.fr"
                   {...register('email')}
                   aria-describedby={errors.email ? 'email-error' : undefined}
-                  className="bg-[#1E1A12] border-straw/50 text-bone placeholder:text-umber rounded-sm focus-visible:ring-1 focus-visible:ring-kiln-red focus-visible:ring-offset-0"
+                  className="bg-[#141910] border-sage/50 text-parchment placeholder:text-loam-mid rounded-sm focus-visible:ring-1 focus-visible:ring-resin focus-visible:ring-offset-0"
                 />
                 {errors.email && (
-                  <p id="email-error" className="text-xs text-celadon" role="alert">{errors.email.message}</p>
+                  <p id="email-error" className="text-xs text-moss-water" role="alert">{errors.email.message}</p>
                 )}
               </div>
 
               {/* Phone */}
               <div className="flex flex-col gap-2">
-                <Label htmlFor="phone" className="text-bone/80">Téléphone</Label>
+                <Label htmlFor="phone" className="text-parchment/80">Téléphone</Label>
                 <Input
                   id="phone"
                   type="tel"
                   placeholder="06 12 34 56 78"
                   {...register('phone')}
                   aria-describedby={errors.phone ? 'phone-error' : undefined}
-                  className="bg-[#1E1A12] border-straw/50 text-bone placeholder:text-umber rounded-sm focus-visible:ring-1 focus-visible:ring-kiln-red focus-visible:ring-offset-0"
+                  className="bg-[#141910] border-sage/50 text-parchment placeholder:text-loam-mid rounded-sm focus-visible:ring-1 focus-visible:ring-resin focus-visible:ring-offset-0"
                 />
                 {errors.phone && (
-                  <p id="phone-error" className="text-xs text-celadon" role="alert">{errors.phone.message}</p>
+                  <p id="phone-error" className="text-xs text-moss-water" role="alert">{errors.phone.message}</p>
                 )}
               </div>
 
               {/* City */}
               <div className="flex flex-col gap-2">
-                <Label htmlFor="city" className="text-bone/80">Ville *</Label>
+                <Label htmlFor="city" className="text-parchment/80">Ville *</Label>
                 <Input
                   id="city"
                   placeholder="Paris"
                   {...register('city')}
                   aria-describedby={errors.city ? 'city-error' : undefined}
-                  className="bg-[#1E1A12] border-straw/50 text-bone placeholder:text-umber rounded-sm focus-visible:ring-1 focus-visible:ring-kiln-red focus-visible:ring-offset-0"
+                  className="bg-[#141910] border-sage/50 text-parchment placeholder:text-loam-mid rounded-sm focus-visible:ring-1 focus-visible:ring-resin focus-visible:ring-offset-0"
                 />
                 {errors.city && (
-                  <p id="city-error" className="text-xs text-celadon" role="alert">{errors.city.message}</p>
+                  <p id="city-error" className="text-xs text-moss-water" role="alert">{errors.city.message}</p>
                 )}
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-2 md:col-span-2">
-                <Label htmlFor="message" className="text-bone/80">Message (optionnel)</Label>
+                <Label htmlFor="message" className="text-parchment/80">Message (optionnel)</Label>
                 <Textarea
                   id="message"
                   rows={4}
                   placeholder="Décrivez votre projet..."
                   {...register('message')}
                   aria-describedby={errors.message ? 'message-error' : undefined}
-                  className="bg-[#1E1A12] border-straw/50 text-bone placeholder:text-umber rounded-sm focus-visible:ring-1 focus-visible:ring-kiln-red focus-visible:ring-offset-0"
+                  className="bg-[#141910] border-sage/50 text-parchment placeholder:text-loam-mid rounded-sm focus-visible:ring-1 focus-visible:ring-resin focus-visible:ring-offset-0"
                 />
                 {errors.message && (
-                  <p id="message-error" className="text-xs text-celadon" role="alert">{errors.message.message}</p>
+                  <p id="message-error" className="text-xs text-moss-water" role="alert">{errors.message.message}</p>
                 )}
               </div>
 
@@ -156,7 +156,7 @@ export default function ContactForm() {
                   type="submit"
                   size="lg"
                   disabled={formState === 'submitting'}
-                  className="w-full bg-kiln-red text-bone font-body rounded-sm hover:bg-kiln-red/90"
+                  className="w-full bg-resin text-parchment font-body rounded-sm hover:bg-resin/90"
                   aria-label="Envoyer ma demande de devis"
                 >
                   {formState === 'submitting' ? (
@@ -170,7 +170,7 @@ export default function ContactForm() {
                   ) : 'Envoyer ma demande'}
                 </Button>
                 {formState === 'error' && (
-                  <p className="text-sm text-celadon" role="alert">
+                  <p className="text-sm text-moss-water" role="alert">
                     Une erreur s'est produite. Veuillez réessayer.
                   </p>
                 )}

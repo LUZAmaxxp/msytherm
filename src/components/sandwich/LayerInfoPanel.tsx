@@ -33,14 +33,14 @@ const panelVariants = {
 }
 
 function Divider() {
-  return <div className="w-full h-px" style={{ backgroundColor: '#C4B49A' }} />
+  return <div className="w-full h-px" style={{ backgroundColor: '#8A9975' }} />
 }
 
 function TechRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-baseline py-2">
-      <span className="font-body text-umber text-[11px] uppercase tracking-[0.1em]">{label}</span>
-      <span className="font-body text-dark-oak text-sm">{value}</span>
+      <span className="font-body text-loam-mid text-[11px] uppercase tracking-[0.1em]">{label}</span>
+      <span className="font-body text-loam text-sm">{value}</span>
     </div>
   )
 }
@@ -51,12 +51,12 @@ function OverviewPanel({ thickness, onThicknessChange }: { thickness: number; on
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <h2 className="font-display font-light italic text-obsidian leading-snug" style={{ fontSize: '1.6rem' }}>
+        <h2 className="font-display font-light italic text-humus leading-snug" style={{ fontSize: '1.6rem' }}>
           Panneau Sandwich Isolant
         </h2>
-        <p className="font-body text-umber uppercase tracking-[0.15em] text-[11px] mt-1">en mycélium</p>
+        <p className="font-body text-loam-mid uppercase tracking-[0.15em] text-[11px] mt-1">en mycélium</p>
       </div>
-      <p className="font-body text-umber text-[13px] leading-relaxed">
+      <p className="font-body text-loam-mid text-[13px] leading-relaxed">
         Sélectionnez une couche du diagramme pour explorer sa composition, ses matériaux et ses propriétés techniques.
       </p>
       <div className="grid grid-cols-2 gap-y-3 gap-x-2">
@@ -71,7 +71,7 @@ function OverviewPanel({ thickness, onThicknessChange }: { thickness: number; on
       <Divider />
       <button
         onClick={() => navigate('/#contact')}
-        className="w-full bg-kiln-red text-bone font-body text-sm py-3 rounded-sm hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-1 focus-visible:outline-kiln-red"
+        className="w-full bg-resin text-parchment font-body text-sm py-3 rounded-sm hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-1 focus-visible:outline-resin"
       >
         Demander un échantillon
       </button>
@@ -90,13 +90,13 @@ function ExteriorPanel({ onBack }: { onBack: () => void }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2">
-        <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: '#C9955C' }} />
-        <span className="font-body text-umber uppercase tracking-[0.12em] text-[10px]">Finition extérieure</span>
+        <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: '#C06830' }} />
+        <span className="font-body text-loam-mid uppercase tracking-[0.12em] text-[10px]">Finition extérieure</span>
       </div>
-      <h3 className="font-display font-light italic text-obsidian" style={{ fontSize: '1.3rem' }}>
+      <h3 className="font-display font-light italic text-humus" style={{ fontSize: '1.3rem' }}>
         Surface de protection
       </h3>
-      <p className="font-body text-umber text-[13px] leading-relaxed">
+      <p className="font-body text-loam-mid text-[13px] leading-relaxed">
         La face extérieure est disponible en plusieurs finitions pour répondre aux exigences architecturales et climatiques.
       </p>
       <div className="flex flex-col">
@@ -104,8 +104,8 @@ function ExteriorPanel({ onBack }: { onBack: () => void }) {
           <div key={f.name}>
             {i > 0 && <Divider />}
             <div className="py-2.5">
-              <p className="font-body font-normal text-dark-oak text-sm">{f.name}</p>
-              <p className="font-body font-light italic text-umber text-[12px] mt-0.5">{f.note}</p>
+              <p className="font-body font-normal text-loam text-sm">{f.name}</p>
+              <p className="font-body font-light italic text-loam-mid text-[12px] mt-0.5">{f.note}</p>
             </div>
           </div>
         ))}
@@ -115,7 +115,7 @@ function ExteriorPanel({ onBack }: { onBack: () => void }) {
       <TechRow label="Fixation" value="Collage + vissage" />
       <TechRow label="Résistance" value="IPX3 (pluie battante)" />
       <Divider />
-      <button onClick={onBack} className="font-body text-umber text-[13px] text-left hover:text-dark-oak transition-colors mt-1">
+      <button onClick={onBack} className="font-body text-loam-mid text-[13px] text-left hover:text-loam transition-colors mt-1">
         ← Retour vue ensemble
       </button>
     </div>
@@ -133,21 +133,21 @@ function MyceliumPanel({ thickness, onThicknessChange, onBack }: { thickness: nu
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2">
-        <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: '#E8D5B0' }} />
-        <span className="font-body text-umber uppercase tracking-[0.12em] text-[10px]">Âme isolante en mycélium</span>
+        <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: '#D8D6C8' }} />
+        <span className="font-body text-loam-mid uppercase tracking-[0.12em] text-[10px]">Âme isolante en mycélium</span>
       </div>
-      <h3 className="font-display font-light italic text-obsidian" style={{ fontSize: '1.3rem' }}>
+      <h3 className="font-display font-light italic text-humus" style={{ fontSize: '1.3rem' }}>
         Le cœur vivant du panneau
       </h3>
       <div className="relative flex flex-col gap-0 pl-5">
         {/* Connecting line */}
-        <div className="absolute left-1.5 top-3 bottom-3 w-px" style={{ backgroundColor: '#C4B49A' }} aria-hidden="true" />
+        <div className="absolute left-1.5 top-3 bottom-3 w-px" style={{ backgroundColor: '#8A9975' }} aria-hidden="true" />
         {steps.map((s) => (
           <div key={s.n} className="flex gap-3 items-start py-2">
-            <span className="font-display font-light italic text-kiln-red text-sm shrink-0 relative z-10 bg-bone pr-1">{s.n}</span>
+            <span className="font-display font-light italic text-resin text-sm shrink-0 relative z-10 bg-parchment pr-1">{s.n}</span>
             <div>
-              <p className="font-body font-normal text-dark-oak text-sm">{s.label}</p>
-              <p className="font-body text-umber text-[12px]">{s.detail}</p>
+              <p className="font-body font-normal text-loam text-sm">{s.label}</p>
+              <p className="font-body text-loam-mid text-[12px]">{s.detail}</p>
             </div>
           </div>
         ))}
@@ -162,7 +162,7 @@ function MyceliumPanel({ thickness, onThicknessChange, onBack }: { thickness: nu
       <TechRow label="Densité" value="80–120 kg/m³" />
       <TechRow label="Bilan carbone" value="CO₂ négatif" />
       <Divider />
-      <button onClick={onBack} className="font-body text-umber text-[13px] text-left hover:text-dark-oak transition-colors mt-1">
+      <button onClick={onBack} className="font-body text-loam-mid text-[13px] text-left hover:text-loam transition-colors mt-1">
         ← Retour vue ensemble
       </button>
     </div>
@@ -179,10 +179,10 @@ function InteriorPanel({ onBack }: { onBack: () => void }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2">
-        <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: '#D4B896' }} />
-        <span className="font-body text-umber uppercase tracking-[0.12em] text-[10px]">Finition intérieure</span>
+        <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: '#4A5E3A' }} />
+        <span className="font-body text-loam-mid uppercase tracking-[0.12em] text-[10px]">Finition intérieure</span>
       </div>
-      <h3 className="font-display font-light italic text-obsidian" style={{ fontSize: '1.3rem' }}>
+      <h3 className="font-display font-light italic text-humus" style={{ fontSize: '1.3rem' }}>
         Surface intérieure habitable
       </h3>
       <div className="flex flex-col">
@@ -190,8 +190,8 @@ function InteriorPanel({ onBack }: { onBack: () => void }) {
           <div key={f.name}>
             {i > 0 && <Divider />}
             <div className="py-2.5">
-              <p className="font-body font-normal text-dark-oak text-sm">{f.name}</p>
-              <p className="font-body font-light italic text-umber text-[12px] mt-0.5">{f.note}</p>
+              <p className="font-body font-normal text-loam text-sm">{f.name}</p>
+              <p className="font-body font-light italic text-loam-mid text-[12px] mt-0.5">{f.note}</p>
             </div>
           </div>
         ))}
@@ -201,7 +201,7 @@ function InteriorPanel({ onBack }: { onBack: () => void }) {
       <TechRow label="Surface" value="Peignable" />
       <TechRow label="Fixation" value="Collage" />
       <Divider />
-      <button onClick={onBack} className="font-body text-umber text-[13px] text-left hover:text-dark-oak transition-colors mt-1">
+      <button onClick={onBack} className="font-body text-loam-mid text-[13px] text-left hover:text-loam transition-colors mt-1">
         ← Retour vue ensemble
       </button>
     </div>
@@ -212,8 +212,8 @@ function InteriorPanel({ onBack }: { onBack: () => void }) {
 export default function LayerInfoPanel({ activeLayer, thickness, onThicknessChange, onBack }: LayerInfoPanelProps) {
   return (
     <div
-      className="bg-bone border rounded-sm p-8 overflow-y-auto max-h-[600px] md:max-h-none"
-      style={{ borderColor: '#C4B49A', borderWidth: '0.5px', width: '100%' }}
+      className="bg-parchment border rounded-sm p-8 overflow-y-auto max-h-[600px] md:max-h-none"
+      style={{ borderColor: '#8A9975', borderWidth: '0.5px', width: '100%' }}
     >
       <AnimatePresence mode="wait">
         <motion.div

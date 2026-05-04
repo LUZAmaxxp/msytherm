@@ -18,8 +18,8 @@ function fadeUp(delay: number) {
 
 function CanvasSkeleton() {
   return (
-    <div className="w-full h-full min-h-[320px] md:min-h-[480px] bg-obsidian/30 rounded-sm animate-pulse flex items-center justify-center">
-      <div className="w-12 h-12 rounded-full border-2 border-kiln-red border-t-transparent animate-spin" role="status" aria-label="Chargement de la scène 3D" />
+      <div className="w-full h-full min-h-[320px] md:min-h-[480px] bg-humus/30 rounded-sm animate-pulse flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full border-2 border-resin border-t-transparent animate-spin" role="status" aria-label="Chargement de la scène 3D" />
     </div>
   )
 }
@@ -35,15 +35,15 @@ export default function Hero() {
   const trustItems = ['🌿 100% Biosourcé', '🔥 Ignifuge', '🇫🇷 Fabriqué en France']
 
   return (
-    <section className="relative min-h-screen bg-dark-oak flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen bg-humus flex items-center pt-16 overflow-hidden">
 
       {/* Background gradient blobs */}
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(122,79,58,0.22)_0%,_transparent_55%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(192,104,48,0.18)_0%,_transparent_55%)]"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(92,112,104,0.10)_0%,_transparent_50%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(122,158,142,0.10)_0%,_transparent_50%)]"
         aria-hidden="true"
       />
 
@@ -53,7 +53,7 @@ export default function Hero() {
         animate={{ scaleX: 1, opacity: 1 }}
         transition={{ duration: 1.6, delay: 0.2, ease }}
         style={{ transformOrigin: 'left' }}
-        className="absolute top-[64px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-straw/30 to-transparent"
+        className="absolute top-[64px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-sage/30 to-transparent"
         aria-hidden="true"
       />
 
@@ -67,7 +67,7 @@ export default function Hero() {
             <motion.div {...fadeUp(0.1)}>
               <Badge
                 variant="outline"
-                className="self-start border-straw/40 text-straw text-xs rounded-sm tracking-widest uppercase font-body px-3 py-1"
+                className="self-start border-sage/40 text-sage text-xs rounded-sm tracking-widest uppercase font-body px-3 py-1"
               >
                 {HERO_CONTENT.badge}
               </Badge>
@@ -76,7 +76,7 @@ export default function Hero() {
             {/* Headline line 1 */}
             <motion.h1
               {...fadeUp(0.28)}
-              className="font-display font-light italic text-bone leading-[1.08] m-0"
+              className="font-display font-light italic text-parchment leading-[1.08] m-0"
               style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.2rem)' }}
             >
               {HERO_CONTENT.headline}
@@ -85,7 +85,7 @@ export default function Hero() {
             {/* Headline accent line */}
             <motion.span
               {...fadeUp(0.44)}
-              className="block font-display font-light italic text-kiln-red leading-[1.08] -mt-3"
+              className="block font-display font-light italic text-resin leading-[1.08] -mt-3"
               style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.2rem)' }}
             >
               {HERO_CONTENT.subheadline}
@@ -97,14 +97,14 @@ export default function Hero() {
               animate={{ scaleX: 1, opacity: 1 }}
               transition={{ duration: 0.9, delay: 0.6, ease }}
               style={{ transformOrigin: 'left' }}
-              className="w-12 h-px bg-straw/50 -mt-1"
+              className="w-12 h-px bg-sage/50 -mt-1"
               aria-hidden="true"
             />
 
             {/* Description */}
             <motion.p
               {...fadeUp(0.62)}
-              className="text-straw/70 font-body text-[0.97rem] leading-relaxed max-w-[480px] -mt-1"
+              className="text-lichen/75 font-body text-[0.97rem] leading-relaxed max-w-[480px] -mt-1"
             >
               {HERO_CONTENT.description}
             </motion.p>
@@ -126,7 +126,7 @@ export default function Hero() {
                 size="lg"
                 variant="outline"
                 onClick={scrollToProduct}
-                className="border-bone/25 text-bone hover:bg-obsidian/40 rounded-sm"
+                className="border-parchment/25 text-parchment hover:bg-humus/40 rounded-sm"
                 aria-label="Découvrir notre produit"
               >
                 {HERO_CONTENT.cta_secondary}
@@ -141,7 +141,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.55, delay: 0.95 + i * 0.14, ease }}
-                  className="text-[0.82rem] text-umber/70 font-body"
+                  className="text-[0.82rem] text-loam-mid/70 font-body"
                 >
                   {item}
                 </motion.span>
@@ -172,11 +172,11 @@ export default function Hero() {
         onClick={scrollToProduct}
         aria-hidden="true"
       >
-        <span className="text-[10px] text-umber/40 font-body uppercase tracking-[0.18em]">Découvrir</span>
+        <span className="text-[10px] text-loam-mid/40 font-body uppercase tracking-[0.18em]">Découvrir</span>
         <motion.div
           animate={{ y: [0, 7, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px h-7 bg-gradient-to-b from-straw/40 to-transparent"
+          className="w-px h-7 bg-gradient-to-b from-sage/40 to-transparent"
         />
       </motion.div>
     </section>

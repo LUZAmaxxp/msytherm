@@ -27,10 +27,10 @@ export default function LayerDiagram({ activeLayer, onLayerClick, thickness }: L
       translateZ: 48,
       height: 52,
       style: {
-        background: 'linear-gradient(135deg, #C9955C, #A8784A)',
-        borderColor: '#8C7355',
+        background: 'linear-gradient(135deg, #C06830, #9A5025)',
+        borderColor: '#6B7A58',
       },
-      textColor: '#F7F2EB',
+      textColor: '#F2F0EA',
     },
     {
       id: 'mycelium',
@@ -41,10 +41,10 @@ export default function LayerDiagram({ activeLayer, onLayerClick, thickness }: L
         backgroundImage: "url('/images/products/product-cubes-stack.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundColor: '#E8D5B0',
-        borderColor: '#C4B49A',
+        backgroundColor: '#D8D6C8',
+        borderColor: '#8A9975',
       },
-      textColor: '#2A2318',
+      textColor: '#1A1F14',
     },
     {
       id: 'interior',
@@ -52,10 +52,10 @@ export default function LayerDiagram({ activeLayer, onLayerClick, thickness }: L
       translateZ: -48,
       height: 52,
       style: {
-        background: 'linear-gradient(135deg, #D4B896, #B89A78)',
-        borderColor: '#8C7355',
+        background: 'linear-gradient(135deg, #4A5E3A, #2B3020)',
+        borderColor: '#6B7A58',
       },
-      textColor: '#2A2318',
+      textColor: '#F2F0EA',
     },
   ]
 
@@ -104,7 +104,7 @@ export default function LayerDiagram({ activeLayer, onLayerClick, thickness }: L
               <div
                 className="absolute top-0 bottom-0 right-0 w-3 opacity-40"
                 style={{
-                  background: 'linear-gradient(to right, transparent, rgba(42,35,24,0.4))',
+                  background: 'linear-gradient(to right, transparent, rgba(26,31,20,0.4))',
                 }}
                 aria-hidden="true"
               />

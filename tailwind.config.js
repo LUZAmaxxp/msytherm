@@ -8,14 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bone': '#F7F2EB',
-        'raw-linen': '#E8E0D1',
-        'straw': '#C4B49A',
-        'umber': '#8C7355',
-        'dark-oak': '#4A3D2E',
-        'obsidian': '#2A2318',
-        'kiln-red': '#7A4F3A',
-        'celadon': '#5C7068',
+        'parchment':  '#F2F0EA',
+        'lichen':     '#D8D6C8',
+        'sage':       '#8A9975',
+        'loam-mid':   '#6B7A58',
+        'loam':       '#2B3020',
+        'humus':      '#1A1F14',
+        'resin':      '#C06830',
+        'moss-water': '#7A9E8E',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -51,9 +51,9 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Fraunces', 'serif'],
-        body: ['Inter', 'sans-serif'],
-        sans: ['Inter', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
+        body: ['Source Serif 4', 'serif'],
+        sans: ['Source Serif 4', 'serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',

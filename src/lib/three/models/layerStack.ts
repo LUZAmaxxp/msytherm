@@ -19,10 +19,10 @@ export function createLayerStack(): { group: THREE.Group; layers: LayerMesh[] } 
   const spacing = 0.4
 
   const defs = [
-    { id: 'exterior', color: 0x8C7355, label: 'Parement Extérieur', roughness: 0.85 },
-    { id: 'mycelium', color: 0xC4B49A, label: 'Âme Mycélium', roughness: 0.9 },
-    { id: 'vapor',    color: 0x5C7068, label: 'Pare-vapeur',    roughness: 0.3, transparent: true, opacity: 0.7 },
-    { id: 'interior', color: 0x2A2318, label: 'Parement Intérieur', roughness: 0.8 },
+    { id: 'exterior', color: 0x2B3020, label: 'Parement Extérieur', roughness: 0.85 },
+    { id: 'mycelium', color: 0x8A9975, label: 'Âme Mycélium', roughness: 0.9 },
+    { id: 'vapor',    color: 0x7A9E8E, label: 'Pare-vapeur',    roughness: 0.3, transparent: true, opacity: 0.7 },
+    { id: 'interior', color: 0x1A1F14, label: 'Parement Intérieur', roughness: 0.8 },
   ]
 
   defs.forEach((def, i) => {

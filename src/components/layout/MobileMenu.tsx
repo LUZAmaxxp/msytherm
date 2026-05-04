@@ -14,7 +14,7 @@ export default function MobileMenu({ links, onNavigate }: MobileMenuProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.2 }}
-      className="md:hidden bg-obsidian border-t border-dark-oak/50"
+      className="md:hidden bg-humus border-t border-loam/50"
       aria-label="Menu mobile"
     >
       <div className="px-4 py-4 flex flex-col gap-2">
@@ -22,7 +22,7 @@ export default function MobileMenu({ links, onNavigate }: MobileMenuProps) {
           <button
             key={link.href}
             onClick={() => onNavigate(link.href, link.isRoute)}
-            className="text-bone/80 hover:text-bone text-left py-3 px-2 text-base font-body border-b border-dark-oak/30 last:border-0 transition-colors"
+            className="text-parchment/80 hover:text-parchment text-left py-3 px-2 text-base font-body border-b border-loam/30 last:border-0 transition-colors"
           >
             {link.label}
           </button>

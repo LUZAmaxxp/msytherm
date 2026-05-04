@@ -37,7 +37,7 @@ export default function ThicknessSelector({ value, onChange }: ThicknessSelector
 
   return (
     <div className="flex flex-col gap-3">
-      <span className="font-body text-umber uppercase tracking-[0.12em] text-[10px]">Épaisseur</span>
+      <span className="font-body text-loam-mid uppercase tracking-[0.12em] text-[10px]">Épaisseur</span>
       <div className="flex flex-wrap gap-2">
         {OPTIONS.map((opt) => (
           <button
@@ -46,8 +46,8 @@ export default function ThicknessSelector({ value, onChange }: ThicknessSelector
             className={[
               'font-body text-[13px] px-3 py-1.5 rounded-sm border transition-colors duration-150',
               opt === value
-                ? 'bg-kiln-red text-bone border-kiln-red'
-                : 'text-dark-oak border-straw hover:border-kiln-red hover:text-kiln-red bg-transparent',
+                ? 'bg-resin text-parchment border-resin'
+                : 'text-loam border-sage hover:border-resin hover:text-resin bg-transparent',
             ].join(' ')}
             aria-pressed={opt === value}
           >
@@ -55,10 +55,10 @@ export default function ThicknessSelector({ value, onChange }: ThicknessSelector
           </button>
         ))}
       </div>
-      <p className="font-body text-dark-oak text-sm">
-        <span className="text-umber text-[10px] uppercase tracking-[0.1em] mr-1">R =</span>
+      <p className="font-body text-loam text-sm">
+        <span className="text-loam-mid text-[10px] uppercase tracking-[0.1em] mr-1">R =</span>
         <span className="font-medium">{displayR.toFixed(1)}</span>
-        <span className="text-umber text-xs ml-1">m²·K/W</span>
+        <span className="text-loam-mid text-xs ml-1">m²·K/W</span>
       </p>
     </div>
   )

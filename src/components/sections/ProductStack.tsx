@@ -14,26 +14,26 @@ function LayerPanel({ activeId }: { activeId: string | null }) {
       initial={{ opacity: 0, x: 10 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3 }}
-      className="flex flex-col gap-4 p-6 bg-raw-linen rounded-sm border border-straw/40"
+      className="flex flex-col gap-4 p-6 bg-lichen rounded-sm border border-sage/40"
     >
       <div className="flex items-center gap-3">
         <div className="w-4 h-10 rounded-sm flex-shrink-0" style={{ backgroundColor: layer.color }} />
         <div>
-          <h3 className="font-display font-light text-dark-oak text-lg">{layer.name}</h3>
-          <p className="text-xs text-umber">{layer.material}</p>
+          <h3 className="font-display font-light text-loam text-lg">{layer.name}</h3>
+          <p className="text-xs text-loam-mid">{layer.material}</p>
         </div>
       </div>
-      <p className="text-sm text-dark-oak/80 font-body leading-relaxed">{layer.description}</p>
+      <p className="text-sm text-loam/80 font-body leading-relaxed">{layer.description}</p>
       <ul className="space-y-1.5">
         {layer.properties.map((prop) => (
           <li key={prop} className="flex items-center gap-2 text-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-kiln-red flex-shrink-0" aria-hidden="true" />
+            <span className="w-1.5 h-1.5 rounded-full bg-resin flex-shrink-0" aria-hidden="true" />
             <span className="text-dark-oak">{prop}</span>
           </li>
         ))}
       </ul>
       {!activeId && (
-        <p className="text-xs text-umber italic">Cliquez sur une couche dans la vue 3D pour voir ses détails</p>
+        <p className="text-xs text-loam-mid italic">Cliquez sur une couche dans la vue 3D pour voir ses détails</p>
       )}
     </motion.div>
   )
@@ -43,7 +43,7 @@ export default function ProductStack() {
   const [activeLayer, setActiveLayer] = useState<string | null>(null)
 
   return (
-    <section id="product" className="py-20 md:py-24 bg-bone">
+    <section id="product" className="py-20 md:py-24 bg-parchment">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,13 +52,13 @@ export default function ProductStack() {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <span className="inline-block text-straw text-sm font-body uppercase tracking-widest mb-3">
+          <span className="inline-block text-sage text-sm font-body uppercase tracking-widest mb-3">
             Notre Produit
           </span>
-          <h2 className="font-display font-light text-3xl md:text-4xl text-dark-oak">
+          <h2 className="font-display font-light text-3xl md:text-4xl text-loam">
             Panneau Sandwich Mycélium
           </h2>
-          <p className="mt-4 max-w-xl mx-auto text-umber font-body">
+          <p className="mt-4 max-w-xl mx-auto text-loam-mid font-body">
             4 couches complémentaires pour une isolation complète. Explorez la composition en 3D.
           </p>
         </motion.div>
@@ -70,11 +70,11 @@ export default function ProductStack() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="h-[300px] md:h-[420px] bg-[#1E1A12] rounded-sm overflow-hidden shadow-lg"
+            className="h-[300px] md:h-[420px] bg-[#141910] rounded-sm overflow-hidden shadow-lg"
           >
             <Suspense fallback={
               <div className="w-full h-full flex items-center justify-center">
-                <div className="w-8 h-8 border-2 border-kiln-red border-t-transparent rounded-full animate-spin" />
+                <div className="w-8 h-8 border-2 border-resin border-t-transparent rounded-full animate-spin" />
               </div>
             }>
               <LayerExploderCanvas onLayerSelect={setActiveLayer} />
@@ -89,7 +89,7 @@ export default function ProductStack() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-col gap-4"
           >
-            <h3 className="font-display font-light text-xl text-dark-oak">Composition du panneau</h3>
+            <h3 className="font-display font-light text-xl text-loam">Composition du panneau</h3>
             <div className="flex flex-col gap-2">
               {LAYERS.map((layer) => (
                 <button
@@ -97,13 +97,13 @@ export default function ProductStack() {
                   onClick={() => setActiveLayer(activeLayer === layer.id ? null : layer.id)}
                   className={`flex items-center gap-3 p-3 rounded-sm border transition-all text-left ${
                     activeLayer === layer.id
-                      ? 'bg-[#1E1A12] border-kiln-red'
-                      : 'bg-bone border-straw hover:border-kiln-red/50'
+                      ? 'bg-[#141910] border-resin'
+                      : 'bg-parchment border-sage hover:border-resin/50'
                   }`}
                 >
                   <div className="w-3 h-6 rounded-sm flex-shrink-0" style={{ backgroundColor: layer.color }} />
-                  <span className="text-sm font-medium text-dark-oak">{layer.name}</span>
-                  <span className="text-xs text-umber ml-auto">{layer.material}</span>
+                  <span className="text-sm font-medium text-loam">{layer.name}</span>
+                  <span className="text-xs text-loam-mid ml-auto">{layer.material}</span>
                 </button>
               ))}
             </div>
@@ -120,21 +120,21 @@ export default function ProductStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-bone rounded-sm p-6 border border-straw/40"
+              className="bg-parchment rounded-sm p-6 border border-sage/40"
             >
               <div className="flex justify-between items-start mb-3">
-                <h3 className="font-display font-light text-dark-oak text-lg">{product.name}</h3>
-                <span className="text-xs bg-kiln-red text-bone px-2 py-1 rounded-sm">
+                <h3 className="font-display font-light text-loam text-lg">{product.name}</h3>
+                <span className="text-xs bg-resin text-parchment px-2 py-1 rounded-sm">
                   {product.thickness}
                 </span>
               </div>
-              <p className="text-sm text-umber mb-3 font-body">{product.description}</p>
+              <p className="text-sm text-loam-mid mb-3 font-body">{product.description}</p>
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-semibold text-dark-oak">λ = {product.lambda}</span>
+                <span className="text-xs font-semibold text-loam">λ = {product.lambda}</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {product.applications.map((app) => (
-                  <span key={app} className="text-xs bg-raw-linen text-umber px-2 py-1 rounded-sm">
+                  <span key={app} className="text-xs bg-lichen text-loam-mid px-2 py-1 rounded-sm">
                     {app}
                   </span>
                 ))}
