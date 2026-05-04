@@ -42,12 +42,10 @@ export default function Footer() {
           <div>
             <h3 className="text-sage font-body font-normal uppercase tracking-[0.12em] mb-4 text-sm">Contact</h3>
             <ul className="space-y-2 text-sm">
-              <li>
               <li><a href="mailto:contact@mystherm.fr" className="hover:text-parchment transition-colors">
                   contact@mystherm.fr
                 </a>
               </li>
-              <li>
               <li><a href="tel:+33123456789" className="hover:text-parchment transition-colors">
                   +33 1 23 45 67 89
                 </a>
