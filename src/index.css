@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 247 242 235;
+    --foreground: 42 35 24;
+    --card: 232 224 209;
+    --card-foreground: 42 35 24;
+    --popover: 247 242 235;
+    --popover-foreground: 42 35 24;
+    --primary: 122 79 58;
+    --primary-foreground: 247 242 235;
+    --secondary: 232 224 209;
+    --secondary-foreground: 74 61 46;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --muted: 196 180 154;
+    --muted-foreground: 140 115 85;
+    --accent: 92 112 104;
+    --accent-foreground: 247 242 235;
+    --border: 196 180 154;
+    --input: 196 180 154;
+    --ring: 122 79 58;
+    --radius: 2px;
+  }
+
+  .dark {
+    --background: 30 26 18;
+    --foreground: 247 242 235;
+    --card: 42 35 24;
+    --card-foreground: 247 242 235;
+    --popover: 42 35 24;
+    --popover-foreground: 247 242 235;
+    --primary: 122 79 58;
+    --primary-foreground: 247 242 235;
+    --secondary: 74 61 46;
+    --secondary-foreground: 247 242 235;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --muted: 74 61 46;
+    --muted-foreground: 196 180 154;
+    --accent: 92 112 104;
+    --accent-foreground: 247 242 235;
+    --border: 74 61 46;
+    --input: 74 61 46;
+    --ring: 122 79 58;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border box-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bone text-dark-oak font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+  #root {
+    min-height: 100vh;
+  }
+  :focus-visible {
+    outline: 1px solid #7A4F3A;
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: #7A4F3A;
+    color: #F7F2EB;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #E8E0D1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #7A4F3A;
+    border-radius: 3px;
+  }
+}
